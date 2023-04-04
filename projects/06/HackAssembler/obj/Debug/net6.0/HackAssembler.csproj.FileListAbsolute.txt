@@ -1,0 +1,15 @@
+C:\Users\lucaz.lindgren\projects\nand2tetris\projects\06\HackAssembler\obj\Debug\net6.0\HackAssembler.csproj.AssemblyReference.cache
+C:\Users\lucaz.lindgren\projects\nand2tetris\projects\06\HackAssembler\obj\Debug\net6.0\HackAssembler.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\lucaz.lindgren\projects\nand2tetris\projects\06\HackAssembler\obj\Debug\net6.0\HackAssembler.AssemblyInfoInputs.cache
+C:\Users\lucaz.lindgren\projects\nand2tetris\projects\06\HackAssembler\obj\Debug\net6.0\HackAssembler.AssemblyInfo.cs
+C:\Users\lucaz.lindgren\projects\nand2tetris\projects\06\HackAssembler\obj\Debug\net6.0\HackAssembler.csproj.CoreCompileInputs.cache
+C:\Users\lucaz.lindgren\projects\nand2tetris\projects\06\HackAssembler\bin\Debug\net6.0\HackAssembler.exe
+C:\Users\lucaz.lindgren\projects\nand2tetris\projects\06\HackAssembler\bin\Debug\net6.0\HackAssembler.deps.json
+C:\Users\lucaz.lindgren\projects\nand2tetris\projects\06\HackAssembler\bin\Debug\net6.0\HackAssembler.runtimeconfig.json
+C:\Users\lucaz.lindgren\projects\nand2tetris\projects\06\HackAssembler\bin\Debug\net6.0\HackAssembler.dll
+C:\Users\lucaz.lindgren\projects\nand2tetris\projects\06\HackAssembler\bin\Debug\net6.0\HackAssembler.pdb
+C:\Users\lucaz.lindgren\projects\nand2tetris\projects\06\HackAssembler\obj\Debug\net6.0\HackAssembler.dll
+C:\Users\lucaz.lindgren\projects\nand2tetris\projects\06\HackAssembler\obj\Debug\net6.0\refint\HackAssembler.dll
+C:\Users\lucaz.lindgren\projects\nand2tetris\projects\06\HackAssembler\obj\Debug\net6.0\HackAssembler.pdb
+C:\Users\lucaz.lindgren\projects\nand2tetris\projects\06\HackAssembler\obj\Debug\net6.0\HackAssembler.genruntimeconfig.cache
+C:\Users\lucaz.lindgren\projects\nand2tetris\projects\06\HackAssembler\obj\Debug\net6.0\ref\HackAssembler.dll
