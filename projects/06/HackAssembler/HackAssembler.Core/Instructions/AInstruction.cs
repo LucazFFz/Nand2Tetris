@@ -2,7 +2,7 @@
 
 namespace HackAssembler.Core.Instructions
 {
-    public class AInstruction : BaseInstruction
+    public class AInstruction : IInstruction
     {
         private readonly string _value;
 
@@ -11,7 +11,7 @@ namespace HackAssembler.Core.Instructions
             _value = value;
         }
         
-        public override string ToMachineCode()
+        public string ToMachineCode()
         {
             var value = int.Parse(_value);
             var binary = Convert.ToString(value, 2);

@@ -3,7 +3,7 @@ using System.Text.RegularExpressions;
 
 namespace HackAssembler.Core.Instructions
 {
-    public class CInstruction : BaseInstruction
+    public class CInstruction : IInstruction
     {
         private readonly string _destMnemonic;
         private readonly string _compMnemonic;
@@ -72,7 +72,7 @@ namespace HackAssembler.Core.Instructions
             _jumpMnemonic = jumpMnemonic;
         }
     
-        public override string ToMachineCode()
+        public string ToMachineCode()
         {
             if (DestTable.TryGetValue(_destMnemonic, out var destMachineCode) &&
                 CompTable.TryGetValue(_compMnemonic, out var compMachineCode) &&

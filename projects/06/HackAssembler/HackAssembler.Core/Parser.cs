@@ -7,25 +7,24 @@ namespace HackAssembler.Core
 {
     public static class Parser
     {
-        private static readonly Dictionary<Type, Tuple<Func<string, BaseInstruction>, Func<string, bool>>>
+        private static readonly Dictionary<Type, Tuple<Func<string, IInstruction>, Func<string, bool>>>
             InstructionTypes = new()
             {
                 {
                     typeof(AInstruction),
-                    new Tuple<Func<string, BaseInstruction>, Func<string, bool>>(ParseAInstruction, IsAInstruction)
+                    new Tuple<Func<string, IInstruction>, Func<string, bool>>(ParseAInstruction, IsAInstruction)
                 },
                 {
                     typeof(CInstruction),
-                    new Tuple<Func<string, BaseInstruction>, Func<string, bool>>(ParseCInstruction, IsCInstruction)
+                    new Tuple<Func<string, IInstruction>, Func<string, bool>>(ParseCInstruction, IsCInstruction)
                 }
             };
 
         public static Type? TryGetInstructionType(this string assemblyInstruction) 
             => InstructionTypes.FirstOrDefault(x 
                 => x.Value.Item2.Invoke(assemblyInstruction)).Key;
-
-
-        public static BaseInstruction ToInstruction(this string assemblyInstruction)
+        
+        public static IInstruction ToInstruction(this string assemblyInstruction)
         {
             var type = assemblyInstruction.TryGetInstructionType();
             
@@ -38,7 +37,7 @@ namespace HackAssembler.Core
         public static string TrimWhiteSpaceAndComments(this string line) 
             => Regex.Replace(line, @"\s+|\/{2}.*", string.Empty);
 
-        private static BaseInstruction ParseAInstruction(string assemblyAInstruction)
+        private static IInstruction ParseAInstruction(string assemblyAInstruction)
         {
             if (assemblyAInstruction.TryGetInstructionType() != typeof(AInstruction)) 
                 throw new FormatException("Not an A instruction");
@@ -47,7 +46,7 @@ namespace HackAssembler.Core
             return new AInstruction(value);
         }
         
-        private static BaseInstruction ParseCInstruction(string assemblyCInstruction)
+        private static IInstruction ParseCInstruction(string assemblyCInstruction)
         {
             if (assemblyCInstruction.TryGetInstructionType() != typeof(CInstruction)) 
                 throw new FormatException("Not a C instruction");
