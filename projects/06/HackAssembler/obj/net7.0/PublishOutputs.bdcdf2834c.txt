@@ -1,0 +1,5 @@
+C:\Users\Lucaz\Desktop\HackAssembler\HackAssembler.exe
+C:\Users\Lucaz\Desktop\HackAssembler\HackAssembler.dll
+C:\Users\Lucaz\Desktop\HackAssembler\HackAssembler.runtimeconfig.json
+C:\Users\Lucaz\Desktop\HackAssembler\HackAssembler.pdb
+C:\Users\Lucaz\Desktop\HackAssembler\HackAssembler.deps.json

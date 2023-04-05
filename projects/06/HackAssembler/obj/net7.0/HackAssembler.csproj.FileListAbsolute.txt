@@ -1,0 +1,15 @@
+F:\Projects\Nand2Tetris\projects\06\HackAssembler\bin\net7.0\HackAssembler.exe
+F:\Projects\Nand2Tetris\projects\06\HackAssembler\bin\net7.0\HackAssembler.deps.json
+F:\Projects\Nand2Tetris\projects\06\HackAssembler\bin\net7.0\HackAssembler.runtimeconfig.json
+F:\Projects\Nand2Tetris\projects\06\HackAssembler\bin\net7.0\HackAssembler.dll
+F:\Projects\Nand2Tetris\projects\06\HackAssembler\bin\net7.0\HackAssembler.pdb
+F:\Projects\Nand2Tetris\projects\06\HackAssembler\obj\net7.0\HackAssembler.csproj.AssemblyReference.cache
+F:\Projects\Nand2Tetris\projects\06\HackAssembler\obj\net7.0\HackAssembler.GeneratedMSBuildEditorConfig.editorconfig
+F:\Projects\Nand2Tetris\projects\06\HackAssembler\obj\net7.0\HackAssembler.AssemblyInfoInputs.cache
+F:\Projects\Nand2Tetris\projects\06\HackAssembler\obj\net7.0\HackAssembler.AssemblyInfo.cs
+F:\Projects\Nand2Tetris\projects\06\HackAssembler\obj\net7.0\HackAssembler.csproj.CoreCompileInputs.cache
+F:\Projects\Nand2Tetris\projects\06\HackAssembler\obj\net7.0\HackAssembler.dll
+F:\Projects\Nand2Tetris\projects\06\HackAssembler\obj\net7.0\refint\HackAssembler.dll
+F:\Projects\Nand2Tetris\projects\06\HackAssembler\obj\net7.0\HackAssembler.pdb
+F:\Projects\Nand2Tetris\projects\06\HackAssembler\obj\net7.0\HackAssembler.genruntimeconfig.cache
+F:\Projects\Nand2Tetris\projects\06\HackAssembler\obj\net7.0\ref\HackAssembler.dll

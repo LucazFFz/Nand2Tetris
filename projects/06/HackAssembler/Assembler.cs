@@ -1,22 +1,47 @@
-public class Assembler 
-{   
-    string FilePath { get; set; }
+using System.Data;
+using System.Security.Cryptography.X509Certificates;
+using Microsoft.VisualBasic.CompilerServices;
 
-    private string[] _lines => File.ReadAllLines(FilePath);
+namespace HackAssembler
+{
+    public class Assembler
+    { 
+        public void Assemble(StreamReader reader, StreamWriter writer)
+        {
+            var currentLineNumber = 1;
 
-    private readonly Parser _parser = new Parser();
-    private readonly Code _code = new Code();
+            while (!reader.EndOfStream)
+            {
+                var line = Parser.RemoveWhiteSpaceAndComments(reader.ReadLine()!);
+                
+                if (string.IsNullOrEmpty(line))
+                {
+                    currentLineNumber++;
+                    continue;
+                }
 
-    public void Assemble(string filePath) 
-    {
-        FilePath = filePath;
+                try
+                {
+                    var machineCode = ConvertLineToMachineCode(line);
+                    writer.WriteLine(machineCode);
+                }
+                catch (SyntaxErrorException e)
+                {
+                    throw new SyntaxErrorException($"Syntax error on line {currentLineNumber}", e);
+                }
+                
+                currentLineNumber++;
+            }
+        }
 
-       
+        private static string? ConvertLineToMachineCode(string line)
+        {
+            var instruction = Parser.ParseFromLine(line);
+
+            if (instruction is null) 
+                throw new SyntaxErrorException();
+            
+            return instruction.ConvertToMachineCode();
+        }
     }
-
-    private bool HasMoreCommands() 
-    {
-       
-    }
-
 }

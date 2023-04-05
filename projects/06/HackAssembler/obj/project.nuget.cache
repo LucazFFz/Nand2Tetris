@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "1O2/hODA3OLmA0Lc1cKaJaMrBJ7YnUHevw8Sf803JJ+70ZdzhCx2G84UPf/27iKBFMhzPPTlU1aw6HHAlvwSVQ==",
+  "dgSpecHash": "Y6NTVf8VcEnvvC4AaaTipSnJ2J+iDigyoDpc3oQ/3v5LRsuDrnZHPwxdR4gW5aEX7fsmGGvvxTy/AyZdwReuIQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\lucaz.lindgren\\projects\\nand2tetris\\projects\\06\\HackAssembler\\HackAssembler.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "F:\\Projects\\Nand2Tetris\\projects\\06\\HackAssembler\\HackAssembler.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Lucaz\\.nuget\\packages\\microsoft.dotnet.upgradeassistant.extensions.default.analyzers\\0.4.410601\\microsoft.dotnet.upgradeassistant.extensions.default.analyzers.0.4.410601.nupkg.sha512"
+  ],
   "logs": []
 }
