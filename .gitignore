@@ -1,3 +1,7 @@
+# Ignore .idea files
+.idea/
+
+
 **vscode
 **bin
 **idea
