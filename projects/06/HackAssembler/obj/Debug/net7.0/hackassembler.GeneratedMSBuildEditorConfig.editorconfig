@@ -8,4 +8,4 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = HackAssembler
-build_property.ProjectDir = F:\Projects\Nand2Tetris\projects\06\HackAssembler\
+build_property.ProjectDir = f:\Projects\Nand2Tetris\projects\06\HackAssembler\
