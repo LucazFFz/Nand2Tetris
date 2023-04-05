@@ -1,5 +1,7 @@
 using System.Data;
 using System.Security.Cryptography.X509Certificates;
+using HackAssembler.Core.Exceptions;
+using HackAssembler.Core.Instructions;
 using Microsoft.VisualBasic.CompilerServices;
 
 namespace HackAssembler.Core
@@ -12,8 +14,8 @@ namespace HackAssembler.Core
 
             while (!reader.EndOfStream)
             {
-                var line = Parser.RemoveWhiteSpaceAndComments(reader.ReadLine()!);
-                
+                var line = reader.ReadLine()!.TrimWhiteSpaceAndComments();
+
                 if (string.IsNullOrEmpty(line))
                 {
                     currentLineNumber++;
@@ -25,23 +27,16 @@ namespace HackAssembler.Core
                     var machineCode = ConvertLineToMachineCode(line);
                     writer.WriteLine(machineCode);
                 }
-                catch (SyntaxErrorException e)
+                catch (FormatException e)
                 {
-                    throw new SyntaxErrorException($"Syntax error on line {currentLineNumber}", e);
+                    throw new AssemblyException($"Syntax error on line {currentLineNumber}", e);
                 }
                 
                 currentLineNumber++;
             }
         }
 
-        private static string? ConvertLineToMachineCode(string line)
-        {
-            var instruction = Parser.ParseFromLine(line);
-
-            if (instruction is null) 
-                throw new SyntaxErrorException();
-            
-            return instruction.ConvertToMachineCode();
-        }
+        private static string? ConvertLineToMachineCode(string line) 
+            => line.ToInstruction().ToMachineCode();
     }
 }

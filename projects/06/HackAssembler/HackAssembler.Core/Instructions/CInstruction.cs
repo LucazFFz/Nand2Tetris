@@ -3,7 +3,7 @@ using System.Text.RegularExpressions;
 
 namespace HackAssembler.Core.Instructions
 {
-    public class CInstruction : IInstruction
+    public class CInstruction : BaseInstruction
     {
         private readonly string _destMnemonic;
         private readonly string _compMnemonic;
@@ -72,7 +72,7 @@ namespace HackAssembler.Core.Instructions
             _jumpMnemonic = jumpMnemonic;
         }
     
-        public string ConvertToMachineCode()
+        public override string ToMachineCode()
         {
             if (DestTable.TryGetValue(_destMnemonic, out var destMachineCode) &&
                 CompTable.TryGetValue(_compMnemonic, out var compMachineCode) &&
@@ -81,7 +81,7 @@ namespace HackAssembler.Core.Instructions
                 return $"111{compMachineCode}{destMachineCode}{jumpMachineCode}";
             }
 
-            throw new SyntaxErrorException();
+            throw new FormatException("Unrecognized instruction mnemonic");
         }
     }
 }
