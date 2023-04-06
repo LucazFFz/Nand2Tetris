@@ -1,22 +1,22 @@
-using System.Data;
-using System.Security.Cryptography.X509Certificates;
 using HackAssembler.Core.Exceptions;
-using HackAssembler.Core.Instructions;
-using Microsoft.VisualBasic.CompilerServices;
+using HackAssembler.Core.Extensions;
 
 namespace HackAssembler.Core
 {
     public class Assembler
-    { 
+    {
         public void Assemble(StreamReader reader, StreamWriter writer)
         {
             var currentLineNumber = 1;
 
+            var symbols = new SymbolDictionary();
+            symbols.AddAllLabelSymbolsFromFile(reader);
+
             while (!reader.EndOfStream)
             {
-                var line = reader.ReadLine()!.TrimWhiteSpaceAndComments();
+                var line = reader.ReadLine()!.Trim().StripComment("//");
 
-                if (string.IsNullOrEmpty(line))
+                if (line.IsEmpty() || line.IsLabel())
                 {
                     currentLineNumber++;
                     continue;
@@ -24,7 +24,7 @@ namespace HackAssembler.Core
 
                 try
                 {
-                    var machineCode = ConvertLineToMachineCode(line);
+                    var machineCode = ConvertLineToMachineCode(line, symbols);
                     writer.WriteLine(machineCode);
                 }
                 catch (FormatException e)
@@ -36,7 +36,10 @@ namespace HackAssembler.Core
             }
         }
 
-        private static string? ConvertLineToMachineCode(string line) 
-            => line.ToInstruction().ToMachineCode();
+        private static string? ConvertLineToMachineCode(string line, SymbolDictionary symbols)
+        {
+            var instruction = Parser.ToInstruction(line, symbols);
+            return instruction.ToMachineCode();
+        }
     }
 }

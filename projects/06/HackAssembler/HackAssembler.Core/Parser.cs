@@ -7,64 +7,29 @@ namespace HackAssembler.Core
 {
     public static class Parser
     {
-        private static readonly Dictionary<Type, Tuple<Func<string, IInstruction>, Func<string, bool>>>
-            InstructionTypes = new()
-            {
-                {
-                    typeof(AInstruction),
-                    new Tuple<Func<string, IInstruction>, Func<string, bool>>(ParseAInstruction, IsAInstruction)
-                },
-                {
-                    typeof(CInstruction),
-                    new Tuple<Func<string, IInstruction>, Func<string, bool>>(ParseCInstruction, IsCInstruction)
-                }
-            };
-
-        public static Type? TryGetInstructionType(this string assemblyInstruction) 
-            => InstructionTypes.FirstOrDefault(x 
-                => x.Value.Item2.Invoke(assemblyInstruction)).Key;
-        
-        public static IInstruction ToInstruction(this string assemblyInstruction)
+        public static IInstruction ToInstruction(string str, SymbolDictionary symbols)
         {
-            var type = assemblyInstruction.TryGetInstructionType();
-            
-            if (type is null) throw new FormatException("Not an instruction");
-            
-            InstructionTypes.TryGetValue(type, out var value);
-            return value!.Item1.Invoke(assemblyInstruction);
+            if (IsAInstruction(str)) return ParseAInstruction(str, symbols);
+            if (IsCInstruction(str)) return ParseCInstruction(str);
+
+            throw new FormatException("Not an instruction");
         }
-        
-        public static string TrimWhiteSpaceAndComments(this string line) 
-            => Regex.Replace(line, @"\s+|\/{2}.*", string.Empty);
 
-        private static IInstruction ParseAInstruction(string assemblyAInstruction)
+        private static IInstruction ParseAInstruction(string assemblyAInstruction, SymbolDictionary symbols)
         {
-            if (assemblyAInstruction.TryGetInstructionType() != typeof(AInstruction)) 
+            if (!IsAInstruction(assemblyAInstruction)) 
                 throw new FormatException("Not an A instruction");
             
             var value = assemblyAInstruction.Remove(0, 1);
-            return new AInstruction(value);
+            return new AInstruction(value, symbols);
         }
         
         private static IInstruction ParseCInstruction(string assemblyCInstruction)
         {
-            if (assemblyCInstruction.TryGetInstructionType() != typeof(CInstruction)) 
+            if (!IsCInstruction(assemblyCInstruction)) 
                 throw new FormatException("Not a C instruction");
             
-            /*
-            string dest, comp, jump;
-
-            char[] delimiterChars = {'=', ';'};
-            var splitInstruction = assemblyCInstruction.Split(delimiterChars);
-            
-            if(splitInstruction.Length > 3)
-                throw new FormatException("Not an C instruction");
-            
-            
-
-            return new CInstruction(dest, comp, jump);
-            */
-            
+            //TODO: change to C# library implementation instead of custom regex
             const string jumpPattern = @"(?<=\;).*$",
                 compPattern = @"((?<=\=)|^)[^;=]+((?=\;)|$)",
                 destPattern = @"^.*(?=\=)";
