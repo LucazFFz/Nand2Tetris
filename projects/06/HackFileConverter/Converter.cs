@@ -29,7 +29,7 @@ public class Converter
         {
             var line = reader.ReadLine()!;
 
-            if (!line.IsBinary() && line.Length == 16)
+            if (!line.IsBinary() || line.Length != 16)
                 throw new FormatException("Line is not in 16 bit binary format");
             
             lines.Add(line);
