@@ -1,0 +1,15 @@
+F:\Projects\Nand2Tetris\projects\06\HackFileConverter\bin\Debug\net7.0\HackFileConverter.exe
+F:\Projects\Nand2Tetris\projects\06\HackFileConverter\bin\Debug\net7.0\HackFileConverter.deps.json
+F:\Projects\Nand2Tetris\projects\06\HackFileConverter\bin\Debug\net7.0\HackFileConverter.runtimeconfig.json
+F:\Projects\Nand2Tetris\projects\06\HackFileConverter\bin\Debug\net7.0\HackFileConverter.dll
+F:\Projects\Nand2Tetris\projects\06\HackFileConverter\bin\Debug\net7.0\HackFileConverter.pdb
+F:\Projects\Nand2Tetris\projects\06\HackFileConverter\obj\Debug\net7.0\HackFileConverter.csproj.AssemblyReference.cache
+F:\Projects\Nand2Tetris\projects\06\HackFileConverter\obj\Debug\net7.0\HackFileConverter.GeneratedMSBuildEditorConfig.editorconfig
+F:\Projects\Nand2Tetris\projects\06\HackFileConverter\obj\Debug\net7.0\HackFileConverter.AssemblyInfoInputs.cache
+F:\Projects\Nand2Tetris\projects\06\HackFileConverter\obj\Debug\net7.0\HackFileConverter.AssemblyInfo.cs
+F:\Projects\Nand2Tetris\projects\06\HackFileConverter\obj\Debug\net7.0\HackFileConverter.csproj.CoreCompileInputs.cache
+F:\Projects\Nand2Tetris\projects\06\HackFileConverter\obj\Debug\net7.0\HackFileConverter.dll
+F:\Projects\Nand2Tetris\projects\06\HackFileConverter\obj\Debug\net7.0\refint\HackFileConverter.dll
+F:\Projects\Nand2Tetris\projects\06\HackFileConverter\obj\Debug\net7.0\HackFileConverter.pdb
+F:\Projects\Nand2Tetris\projects\06\HackFileConverter\obj\Debug\net7.0\HackFileConverter.genruntimeconfig.cache
+F:\Projects\Nand2Tetris\projects\06\HackFileConverter\obj\Debug\net7.0\ref\HackFileConverter.dll
