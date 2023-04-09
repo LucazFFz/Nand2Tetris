@@ -1,7 +1,7 @@
 # Nand2Tetris
 Computer implementation as described in The Elements of Computing Systems.
 
-Currently, only projects 00 through 05 have been completed. However, I intend to update this repository with the remaining projects as I complete them. All software is written in the C# programming language. 
+Currently, only projects 00 through 06 have been completed. However, I intend to update this repository with the remaining projects as I complete them. All software is written in the C# programming language. 
 
 * Project 0: Introduction
 * Project 1: Boolean Logic
