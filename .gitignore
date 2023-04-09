@@ -1,7 +1,8 @@
 # Ignore .idea files
-.idea/
+**idea
 
 
 **vscode
 **bin
+**obj
 **idea
