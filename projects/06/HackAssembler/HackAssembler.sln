@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HackAssembler", "HackAssembler\HackAssembler.csproj", "{646C0D5C-F998-4618-9B3C-CAE5C4F9ABB5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HackAssembler.Core", "HackAssembler.Core\HackAssembler.Core.csproj", "{A408C28D-B2CC-4C4E-B5AE-4FF63E7DE6AB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{646C0D5C-F998-4618-9B3C-CAE5C4F9ABB5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{646C0D5C-F998-4618-9B3C-CAE5C4F9ABB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{646C0D5C-F998-4618-9B3C-CAE5C4F9ABB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{646C0D5C-F998-4618-9B3C-CAE5C4F9ABB5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A408C28D-B2CC-4C4E-B5AE-4FF63E7DE6AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A408C28D-B2CC-4C4E-B5AE-4FF63E7DE6AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A408C28D-B2CC-4C4E-B5AE-4FF63E7DE6AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A408C28D-B2CC-4C4E-B5AE-4FF63E7DE6AB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

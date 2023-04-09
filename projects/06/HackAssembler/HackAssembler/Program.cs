@@ -1,5 +1,6 @@
 ﻿using System.Data;
 using HackAssembler.Core;
+using HackAssembler.Core.Exceptions;
 
 string[] arguments = Environment.GetCommandLineArgs();
 
@@ -28,7 +29,7 @@ try
     
     Console.WriteLine($"Assembly successful, output file path: {outputFilePath}");
 }
-catch (SyntaxErrorException e)
+catch (Exception e)
 {
     Console.WriteLine($"An error occurred during assembly: {e} ");
 }

@@ -4,8 +4,11 @@ namespace HackAssembler.Core.Extensions
 {
     public static class StringExtensions
     {
-        public static string StripComment(this string str, string commentIndicator) 
-            => Regex.Replace(str, @$"\{commentIndicator}.*", string.Empty).TrimEnd();
+        public static string StripComment(this string str, string commentIndicator)
+            => Regex.Replace(str, @$"\{commentIndicator}.*", "");
+
+        public static string StripWhiteSpace(this string str)
+            => str.Replace(" ", "");
         
         public static bool IsLabel(this string str) =>  str.StartsWith("(") && str.EndsWith(")");
 

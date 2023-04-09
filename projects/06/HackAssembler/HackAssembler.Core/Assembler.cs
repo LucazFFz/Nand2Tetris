@@ -8,13 +8,13 @@ namespace HackAssembler.Core
         public void Assemble(StreamReader reader, StreamWriter writer)
         {
             var currentLineNumber = 1;
-
+ 
             var symbols = new SymbolDictionary();
             symbols.AddAllLabelSymbolsFromFile(reader);
 
             while (!reader.EndOfStream)
             {
-                var line = reader.ReadLine()!.Trim().StripComment("//");
+                var line = reader.ReadLine()!.StripComment("//").StripWhiteSpace();
 
                 if (line.IsEmpty() || line.IsLabel())
                 {

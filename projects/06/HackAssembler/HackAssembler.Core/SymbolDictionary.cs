@@ -54,7 +54,7 @@ namespace HackAssembler.Core
         {
             while (!reader.EndOfStream)
             {
-                var line = reader.ReadLine()!.Trim().StripComment("//");
+                var line = reader.ReadLine()!.StripComment("//").StripWhiteSpace();
                 
                 if(line.IsEmpty()) continue;
 
