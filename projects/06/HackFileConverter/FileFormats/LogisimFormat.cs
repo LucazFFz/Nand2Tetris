@@ -1,4 +1,6 @@
-﻿using HackFileConverter.Extensions;
+﻿using System.ComponentModel;
+using System.Text;
+using HackFileConverter.Extensions;
 
 namespace HackFileConverter.FileFormats;
 
@@ -6,67 +8,44 @@ public class LogisimFormat : IFileFormat
 {
     public List<string> ConvertToHack(List<string> hack)
     {
-        var result = ToLogisimFormat(MergeContinuousElements(hack));
+        const int instructionsPerLine = 8;
 
-        var list = new List<string>()
+        var lines = new List<string>()
         {
             "v2.0 raw"
         };
-        result.Partition(8).ToList().ForEach(x => list.Add(string.Join(" ", x)));
 
-        return list;
-    }
+        var partitionedChunks = hack.ChunkBy(x => x).Chunk(instructionsPerLine);
 
-    private List<string> ToLogisimFormat(List<Tuple<string, int>> list)
-    {
-        var formatted = new List<string>();
-        foreach (var element in list)
+        foreach (var chunks in partitionedChunks)
         {
-            var hex = Utils.BinaryToHexadecimal(element.Item1);
-            var amount = element.Item2;
-
-            if (amount == 1 && hex != "0")
-                hex = hex.TrimStart('0');
-
-            if (amount >= 4)
-            {
-                formatted.Add($"{amount}*{hex}");
-                continue;
-            }
+            var line = new StringBuilder();
             
-            formatted.Add(hex);
+            foreach (var chunk in chunks)
+                line.Append(ToLogisimFormat(chunk));
+            
+            lines.Add(line.ToString().Trim());
         }
-
-        return formatted;
-    }
-
-    private List<Tuple<string, int>> MergeContinuousElements(List<string> list)
-    {
-        var elements = new List<Tuple<string, int>>();
-        List<string> accumulate = new List<string>();
         
-        for (int i = 0; i < list.Count; i++)
-        {
-            var element = list[i];
-            
-            if (accumulate.Count == 0 || accumulate[0] == element)
-                accumulate.Add(element);
+        return lines;
+    }
 
-            if (i != list.Count - 1 && list[i + 1] == element)
-                continue;
-            
-            if (accumulate.Count >= 4)
-            {
-                elements.Add(new Tuple<string, int>(element, accumulate.Count));
-                accumulate = new List<string>();
-                continue;
-            }
-            
-            accumulate.ForEach(x => elements.Add(new Tuple<string, int>(x, 1)));
-            accumulate = new List<string>();
-        }
+    private string ToLogisimFormat(IGrouping<string, string> group)
+    {
+        var element = new StringBuilder();
+        var hex = Utils.BinaryToHexadecimal(group.Key);
+        var amount = group.Count();
+        
+        if(amount == 1 && hex != "0") 
+            hex = hex.TrimStart('0');
+        
+        if (amount >= 4) 
+            return $"{amount}*{hex} ";
 
-        return elements;
+        foreach (var _ in group)
+            element.Append($"{hex} ");
+        
+        return element.ToString();
     }
 }
 
